@@ -22,7 +22,7 @@ public class DataUtils {
 		
 		setMainPost(new Post("main", "", Constants.MAIN_POST_WRITTER, new Timestamp(0), null));
 		getMainPost().setSubForum(true);
-		controller.getPosts().put(Constants.MAIN_POST_WRITTER + new Timestamp(0), getMainPost());
+		controller.getPosts().put(getMainPost().getTitle() , getMainPost());
 		
 		for (int i = 0; i < Constants.INITIAL_NUM_OF_USERS; i++) {
 			controller.getUsers().put("name-" + i, new User("name-" + i,"pass" + i));
@@ -43,7 +43,6 @@ public class DataUtils {
 								controller.getPosts().get("sub-forum-" + i)));
 			}
 		}
-
 	}
 
 	public static void post(Post father, Post child) throws RemoteException {
